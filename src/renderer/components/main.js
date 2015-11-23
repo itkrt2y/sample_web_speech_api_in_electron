@@ -19,16 +19,30 @@ export default class Main extends Component {
     return recognition;
   }
 
-  speech() {
+  record() {
     // 録音開始
     this.recognition.start();
+  }
+
+  speech() {
+    speechSynthesis.speak(
+      new SpeechSynthesisUtterance(this.refs.record.value)
+    );
   }
 
   render() {
     return(
       <div className="main">
         <h1>Web Speech API</h1>
-        <button onClick={ () => this.speech() }>Speech</button>
+
+        <div>
+          <button onClick={ () => this.speech() }>Speech</button>
+          <input type="text" ref="record"/>
+        </div>
+
+        <div>
+          <button onClick={ () => this.record() }>Record</button>
+        </div>
       </div>
     );
   }
