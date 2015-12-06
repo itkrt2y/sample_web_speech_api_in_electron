@@ -1,7 +1,7 @@
 {
   "name": "sample_web_speech_api_in_electron",
   "version": "0.0.1",
-  "author": "tatsuya itakrua",
+  "author": "tatsuya itakura",
   "dependencies": {
     "react": "^0.14.3",
     "react-dom": "^0.14.3"
