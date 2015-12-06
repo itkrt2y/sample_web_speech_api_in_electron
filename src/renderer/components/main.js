@@ -10,10 +10,9 @@ export default class Main extends Component {
     let recognition = new webkitSpeechRecognition();
     recognition.lang = 'ja';
 
-    // 録音終了時トリガー
-    recognition.addEventListener('result', (event) => {
-      console.log(event.results.item(0).item(0).transcript)
-    }, false);
+    recognition.onresult = (event) => {
+      console.log(event.results[0][0].transcript)
+    }
 
     return recognition;
   }
@@ -25,7 +24,7 @@ export default class Main extends Component {
 
   speech() {
     speechSynthesis.speak(
-      new SpeechSynthesisUtterance(this.refs.record.value)
+      new SpeechSynthesisUtterance(this.refs.speech.value)
     );
   }
 
@@ -36,7 +35,7 @@ export default class Main extends Component {
 
         <div>
           <button onClick={ () => this.speech() }>Speech</button>
-          <input type="text" ref="record"/>
+          <input type="text" ref="speech"/>
         </div>
 
         <div>
