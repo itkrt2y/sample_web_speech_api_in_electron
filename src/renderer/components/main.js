@@ -7,7 +7,6 @@ export default class Main extends Component {
   }
 
   initializeSpeechRecognition() {
-    window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
     let recognition = new webkitSpeechRecognition();
     recognition.lang = 'ja';
 
